@@ -28,16 +28,16 @@ password.send_keys('Basiq123123')
 
 login_user = driver.find_element(By.XPATH, '//*[@id="login-btn"]')
 login_user.send_keys(Keys.ENTER)
-driver.implicitly_wait(30)
+time.sleep(20)
 
 # Step2: Adding new user
 users = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/nav/div[1]/div[2]/a')
 users.click()
-driver.implicitly_wait(15)
+time.sleep(5)
 
 create_user = driver.find_element(By.ID, 'new-user-btn-first')
 create_user.click()
-driver.implicitly_wait(15)
+time.sleep(5)
 
 first_name = driver.find_element(By.ID, 'input-firstName')
 first_name.click()
@@ -58,20 +58,20 @@ email_address.send_keys('milorad.mijalkovic+automationtestuser@basiq.io')
 phone_number = driver.find_element(By.ID, 'input-phoneNumber')
 phone_number.click()
 phone_number.send_keys('+39066888781')
-driver.implicitly_wait(5)
+time.sleep(5)
 
 create_user_btn = driver.find_element(By.ID, 'create-user-btn')
 create_user_btn.click()
-driver.implicitly_wait(45)
+time.sleep(20)
 
 # Step 3: Deleting new created user
 edit_user = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[2]/div[1]/div/div[1]/div[2]/div[5]/div[1]/a')
 edit_user.click()
-driver.implicitly_wait(10)
+time.sleep(5)
 
 remove_user_btn = driver.find_element(By.ID, 'remove-user-btn')
 remove_user_btn.click()
-driver.implicitly_wait(10)
+time.sleep(5)
 remove_user_btn_confirm = driver.find_element(By.ID, 'remove-user-modal-submit-btn')
 remove_user_btn_confirm.click()
 time.sleep(5)
