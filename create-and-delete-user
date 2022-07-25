@@ -14,7 +14,7 @@ from time import sleep
 
 # Step1: Login to Basiq
 URL = "http://basiq-dev-dashboard-stage.s3-website-ap-southeast-2.amazonaws.com/"
-driver = webdriver.Chrome('/Users/miloradmijalkovic/Documents/automation test/test/chromedriver_chrome_100')
+driver = webdriver.Chrome('/Users/miloradmijalkovic/Documents/automation test/test/chromedriver_chrome_103')
 driver.get(URL)
 driver.maximize_window()
 
@@ -35,7 +35,7 @@ users = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/nav/div[1]/d
 users.click()
 driver.implicitly_wait(15)
 
-create_user = driver.find_element(By.ID, 'new-user-btn-secondary')
+create_user = driver.find_element(By.ID, 'new-user-btn-first')
 create_user.click()
 driver.implicitly_wait(15)
 
