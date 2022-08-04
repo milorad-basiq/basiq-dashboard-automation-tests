@@ -1,0 +1,59 @@
+"""
+This is an automation test of Consent UI 
+by using the https://account-verification-git-v3-bridget-basiq.vercel.app/ link.
+"""
+import time
+import selenium
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.keys import Keys
+
+URL = "https://account-verification-git-v3-bridget-basiq.vercel.app/"
+driver = webdriver.Chrome('/Users/miloradmijalkovic/Documents/automation test/test/chromedriver_chrome_103')
+driver.get(URL)
+driver.maximize_window()
+time.sleep(5)
+
+get_started = driver.find_element(By.XPATH, '//*[@id="__next"]/div[1]/main/div[1]/div[3]/div/a')
+get_started.click()
+time.sleep(5)
+
+email_filed = driver.find_element(By.ID, 'email')
+email_filed.click()
+email_filed.send_keys('milorad.mijalkovic+seleniumdev@basiq.io')
+
+continue_btn = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[3]/div/div[2]/form/div/div[2]/button[1]')
+continue_btn.click()
+time.sleep(5)
+
+continue_btn2 = driver.find_element(By.XPATH, '//*[@id="__next"]/main/div[3]/div/div[2]/div[2]/button[1]')
+continue_btn2.click()
+time.sleep(15)
+
+approve_btn = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[2]/div/button[2]')
+approve_btn.click()
+time.sleep(5)
+
+hooli_select = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[1]/div[2]/button[127]/div[1]')
+hooli_select.click()
+time.sleep(5)
+
+login_fld = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[1]/div/div[1]/input')
+login_fld.click()
+login_fld.send_keys('jared')
+
+password_fld = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[1]/div/div[2]/input')
+password_fld.click()
+password_fld.send_keys('django')
+time.sleep(5)
+
+login_btn = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[2]/div/button')
+login_btn.click()
+time.sleep(15)
+
+done_btn = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[2]/div/button')
+done_btn.click()
+time.sleep(10)
+
+driver.close()
