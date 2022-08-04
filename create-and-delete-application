@@ -1,0 +1,64 @@
+"""
+This is a test for Basiq dashboard. This test covers:
+- log in to Basiq Dashboard
+- create new application
+- delete new created application
+"""
+import selenium
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+import time
+from time import sleep
+
+# Step1: Login to Basiq
+URL = "http://basiq-dev-dashboard-stage.s3-website-ap-southeast-2.amazonaws.com/"
+driver = webdriver.Chrome('/Users/miloradmijalkovic/Documents/automation test/test/chromedriver_chrome_103')
+driver.get(URL)
+driver.maximize_window()
+
+username_login = driver.find_element(By.ID, 'input-email')
+username_login.click()
+username_login.send_keys('milorad.mijalkovic+seleniumdev@basiq.io')
+
+password = driver.find_element(By.ID, 'input-password')
+password.click()
+password.send_keys('Basiq123123')
+
+login_user = driver.find_element(By.XPATH, '//*[@id="login-btn"]')
+login_user.send_keys(Keys.ENTER)
+time.sleep(10)
+
+# Step2: Create new application
+driver.get(URL+'create')
+time.sleep(2)
+name = driver.find_element(By.ID, 'input-name')
+name.click()
+name.send_keys('Automation Test App')
+create_app_btn = driver.find_element(By.ID, 'create-applicaiton-btn')
+create_app_btn.click()
+time.sleep(10)
+
+# Step3: Delete application
+driver.get(URL+'applications')
+time.sleep(5)
+select_app_for_delete = driver.find_element(
+    By.XPATH, '//*[@id="root"]/div/div[2]/div[1]/div/div[2]/div/div/div[2]/table/tbody/tr[2]/td[1]/div')
+
+select_app_for_delete.click()
+time.sleep(5)
+
+remove_app_btn = driver.find_element(By.ID, 'remove-application-btn')
+remove_app_btn.click()
+time.sleep(5)
+
+remove_app_confirm = driver.find_element(By.ID, 'input-deleteInput')
+remove_app_confirm.click()
+remove_app_confirm.send_keys('Delete')
+time.sleep(5)
+
+remove_btn = driver.find_element(By.ID, 'remove-application-modal-submit-btn')
+remove_btn.click()
+time.sleep(10)
+driver.close()
