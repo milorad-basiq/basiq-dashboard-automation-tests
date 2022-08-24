@@ -1,9 +1,10 @@
 """
-This is an automation test of Consent UI 
+This is an automation test of Consent UI
 by using the https://account-verification-git-v3-bridget-basiq.vercel.app/ link.
 """
 import time
 import selenium
+import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -35,8 +36,12 @@ approve_btn = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div
 approve_btn.click()
 time.sleep(5)
 
-hooli_select = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[1]/div[2]/button[127]/div[1]')
+hooli_select = driver.find_element(By.ID, 'AU00000')
 hooli_select.click()
+time.sleep(5)
+
+approve_btn_2 = driver.find_element(By.XPATH, '/html/body/div/div/div/div/div/div[2]/div/div[3]/button[2]/span')
+approve_btn_2.click()
 time.sleep(5)
 
 login_fld = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[1]/div/div[1]/input')
@@ -50,10 +55,18 @@ time.sleep(5)
 
 login_btn = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[2]/div/button')
 login_btn.click()
-time.sleep(15)
+time.sleep(10)
 
 done_btn = driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div[2]/div/button')
 done_btn.click()
 time.sleep(10)
+
+cancel_btn = driver.find_element(By.XPATH, '/html/body/div/main/div[4]/button')
+cancel_btn.click()
+time.sleep(5)
+
+confirm_cancel = driver.find_element(By.XPATH, '//*[@id="headlessui-dialog-1"]/div/div[2]/div/button[1]')
+confirm_cancel.click()
+time.sleep(5)
 
 driver.close()
